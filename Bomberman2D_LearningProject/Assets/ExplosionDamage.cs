@@ -10,5 +10,12 @@ public class ExplosionDamage : MonoBehaviour {
         {
             Destroy(collision.gameObject);
         }
+        else if(collision.CompareTag("Indestructible"))
+        {
+            Destroy(this.gameObject);
+        }else if(collision.CompareTag("Player"))
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }
