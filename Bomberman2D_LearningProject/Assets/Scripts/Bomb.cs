@@ -7,6 +7,11 @@ public class Bomb : MonoBehaviour {
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private int nivelBomba;
 
+    private BoxCollider2D hitbox;
+    private void Awake()
+    {
+        hitbox = this.GetComponent<BoxCollider2D>();
+    }
     private void OnDestroy()
     {
         BombDrop.cantidadBombas++;
@@ -25,5 +30,10 @@ public class Bomb : MonoBehaviour {
             Instantiate(explosionPrefab, posicionDerecha, Quaternion.identity);
         }
         
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        this.hitbox.isTrigger = false;
     }
 }

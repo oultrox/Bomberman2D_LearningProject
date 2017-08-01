@@ -9,7 +9,7 @@ public class BombDrop : MonoBehaviour {
     private Vector2 pos;
     public static int cantidadBombas;
     [SerializeField] private int cantMaxBombas;
-
+    private Collider2D[] hitColliders;
     private void Awake()
     {
         this.SetCantidadBombas();
@@ -19,11 +19,17 @@ public class BombDrop : MonoBehaviour {
     void Update () {
         if (Input.GetKeyDown(KeyCode.Space) && PuedeColocarBomba())
         {
-            cantidadBombas--;
+            
             pos = this.transform.position;
             pos.x = Mathf.Round(pos.x);
             pos.y = Mathf.Round(pos.y);
-            Instantiate(bomb, pos, Quaternion.identity);
+            hitColliders = Physics2D.OverlapCircleAll(pos, 0.1f);
+            if ((hitColliders.Length <= 1)) //You don't have someone with a collider here
+            {
+                cantidadBombas--;
+                Instantiate(bomb, pos, Quaternion.identity);
+            }
+            
         }
 	}
 
