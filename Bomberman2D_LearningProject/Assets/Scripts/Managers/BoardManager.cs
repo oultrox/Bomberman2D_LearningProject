@@ -5,21 +5,46 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour {
     
+    public static BoardManager instance;
     //15 x 13 pilares
     [SerializeField] private GameObject pilar;
     [SerializeField] private GameObject bloque;
+    [SerializeField] private GameObject[] enemies;
     [SerializeField] private int columnas; //15
     [SerializeField] private int filas;    //13
     [SerializeField] private float multiplicadorBloquesDestruibles;
+    [SerializeField] private float multiplicadorEnemigos;
     private List<Vector2> mapaPosiciones = new List<Vector2>();
 
-	void Start () {
+    private void Awake()
+    {
+        //Singleton creation
+        if (instance == null)
+        {
+            instance = this;
+        }else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+    void Start () {
         
         MapeoPosiciones();
         InicializationPlayer();
         CrearPilares();
         CrearBloques();
+        CrearEnemigos();
 	}
+
+    private void CrearEnemigos()
+    {
+        var cantidadBloques = (int)mapaPosiciones.Count / multiplicadorEnemigos;
+
+        for (int x = 0; x < cantidadBloques; x++)
+        {
+            Instantiate(enemies[0], RandomPlacement(), Quaternion.identity);
+        }
+    }
 
     private void MapeoPosiciones()
     {
