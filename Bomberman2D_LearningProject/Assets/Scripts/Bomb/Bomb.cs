@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bomb : MonoBehaviour {
 
     [SerializeField] private GameObject explosionPrefab;
-    [SerializeField] private int nivelBomba;
 
     private BoxCollider2D hitbox;
     private void Awake()
@@ -17,7 +16,7 @@ public class Bomb : MonoBehaviour {
         GameManager.instance.CantBombas++;
         Vector2 posicionCentro = new Vector2(transform.position.x, transform.position.y);
         Instantiate(explosionPrefab, posicionCentro, Quaternion.identity);
-        for (int i = 1; i <= nivelBomba; i++)
+        for (int i = 1; i <= GameManager.instance.NivelBomba; i++)
         {
             Vector2 posicionArriba = new Vector2(transform.position.x, transform.position.y - i);
             Vector2 posicionAbajo = new Vector2(transform.position.x, transform.position.y + i);

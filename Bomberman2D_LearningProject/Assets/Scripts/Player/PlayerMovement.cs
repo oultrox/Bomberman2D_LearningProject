@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private float h;
     private float v;
-    [SerializeField] private float speed;
 
     // Use this for initialization
     void Start () {
@@ -41,7 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         movement.x = h;
         movement.y = v;
         movement.z = 0f;
-        movement = movement.normalized * speed * Time.deltaTime;
+        movement = movement.normalized * GameManager.instance.PlayerSpeed * Time.deltaTime;
         this.playerRigidBody.MovePosition(transform.position + movement);
         anim.SetFloat("inputX", h);
         anim.SetFloat("inputY", v);

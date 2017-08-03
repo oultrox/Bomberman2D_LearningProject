@@ -11,12 +11,12 @@ public class BombDrop : MonoBehaviour {
     private Collider2D[] hitColliders;
     private void Awake()
     {
-        this.SetCantidadBombas();
+        GameManager.instance.AddCantidadBombas();
     }
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.Space) && PuedeColocarBomba())
+        if (Input.GetKeyDown(KeyCode.Space) && GameManager.instance.PuedeColocarBomba())
         {
             
             pos = this.transform.position;
@@ -32,14 +32,4 @@ public class BombDrop : MonoBehaviour {
         }
 	}
 
-    bool PuedeColocarBomba()
-    {
-        return GameManager.instance.CantBombas > 0;
-    }
-
-    private void SetCantidadBombas()
-    {
-        GameManager.instance.CantBombas += GameManager.instance.CantMaxBombas;
-        GameManager.instance.CantMaxBombas = 0;
-    }
 }

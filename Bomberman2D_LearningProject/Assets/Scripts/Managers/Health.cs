@@ -18,4 +18,17 @@ public class Health : MonoBehaviour {
                 Destroy(gameObject);
         }
     }
+
+    public int Life
+    {
+        get
+        {
+            return life;
+        }
+
+        set
+        {
+            life = value;
+        }
+    }
 }
