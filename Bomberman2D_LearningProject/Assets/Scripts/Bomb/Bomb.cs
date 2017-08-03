@@ -14,7 +14,7 @@ public class Bomb : MonoBehaviour {
     }
     private void OnDestroy()
     {
-        BombDrop.cantidadBombas++;
+        GameManager.instance.CantBombas++;
         Vector2 posicionCentro = new Vector2(transform.position.x, transform.position.y);
         Instantiate(explosionPrefab, posicionCentro, Quaternion.identity);
         for (int i = 1; i <= nivelBomba; i++)

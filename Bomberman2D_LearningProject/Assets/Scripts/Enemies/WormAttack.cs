@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WormAttack : MonoBehaviour {
+
     [SerializeField] private int damage;
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ExplosionDamage : MonoBehaviour {
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
             if (collision.CompareTag("Destructible"))
             {
                 Destroy(collision.gameObject);
+                GameManager.instance.PossibleItemDrop(collision.transform);
             }
             else if (collision.CompareTag("Indestructible"))
             {

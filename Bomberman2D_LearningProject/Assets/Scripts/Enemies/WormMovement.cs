@@ -5,6 +5,7 @@ using UnityEngine;
 public class WormMovement : MonoBehaviour {
 
     [SerializeField] private float speed;
+
     // Use this for initialization
 	void Start ()
     {

@@ -7,8 +7,7 @@ public class BombDrop : MonoBehaviour {
 
     [SerializeField] private GameObject bomb;
     private Vector2 pos;
-    public static int cantidadBombas;
-    [SerializeField] private int cantMaxBombas;
+
     private Collider2D[] hitColliders;
     private void Awake()
     {
@@ -26,7 +25,7 @@ public class BombDrop : MonoBehaviour {
             hitColliders = Physics2D.OverlapCircleAll(pos, 0.1f);
             if ((hitColliders.Length <= 1)) //You don't have someone with a collider here
             {
-                cantidadBombas--;
+                GameManager.instance.CantBombas--;
                 Instantiate(bomb, pos, Quaternion.identity);
             }
             
@@ -35,12 +34,12 @@ public class BombDrop : MonoBehaviour {
 
     bool PuedeColocarBomba()
     {
-        return cantidadBombas > 0;
+        return GameManager.instance.CantBombas > 0;
     }
 
     private void SetCantidadBombas()
     {
-        cantidadBombas += cantMaxBombas;
-        cantMaxBombas = 0;
+        GameManager.instance.CantBombas += GameManager.instance.CantMaxBombas;
+        GameManager.instance.CantMaxBombas = 0;
     }
 }
