@@ -15,7 +15,6 @@ public class BoardManager : MonoBehaviour {
     [SerializeField] private float multiplicadorBloquesDestruibles;
     [SerializeField] private float multiplicadorEnemigos;
     private List<Vector2> mapaPosiciones = new List<Vector2>();
-
     private void Awake()
     {
         //Singleton creation
@@ -103,7 +102,4 @@ public class BoardManager : MonoBehaviour {
         mapaPosiciones.Remove(tempPosicion);
         return tempPosicion;
     }
-
-    
-
 }

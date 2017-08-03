@@ -9,7 +9,7 @@ public class BombDrop : MonoBehaviour {
     private Vector2 pos;
 
     private Collider2D[] hitColliders;
-    private void Awake()
+    private void Start()
     {
         GameManager.instance.AddCantidadBombas();
     }
