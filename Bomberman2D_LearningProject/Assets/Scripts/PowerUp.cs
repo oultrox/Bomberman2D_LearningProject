@@ -6,6 +6,8 @@ public class PowerUp : MonoBehaviour {
 
     [SerializeField] private int powerUpType;
 
+    //---------API methods---------
+    //Just ask if it collided with the player, assign the power up and destroy this object because no longer is useful.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -15,6 +17,8 @@ public class PowerUp : MonoBehaviour {
         }
     }
 
+    //---------Custom methods---------
+    //Assigns the properties of the player depending of the power-up type.
     private void AssignPowerUp()
     {
         switch (powerUpType)

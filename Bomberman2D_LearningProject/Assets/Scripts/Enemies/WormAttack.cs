@@ -6,6 +6,7 @@ public class WormAttack : MonoBehaviour {
 
     [SerializeField] private int damage;
 
+    //basic collision method asking if what collided is a player.
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

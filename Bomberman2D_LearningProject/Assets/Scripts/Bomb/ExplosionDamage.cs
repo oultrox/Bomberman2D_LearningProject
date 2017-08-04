@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplosionDamage : MonoBehaviour {
 
-
+    //depending on what collided the explosion will execute stuff.
     void OnTriggerEnter2D(Collider2D collision)
     {
             if (collision.CompareTag("Destructible"))

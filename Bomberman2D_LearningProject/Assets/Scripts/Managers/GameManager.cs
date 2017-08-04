@@ -3,20 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Manages most of the match values and components of the player itself, in a general wa.
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
+    
     [SerializeField] private GameObject[] itemPrefabs;
     [SerializeField] private int cantItems;
-    //Power-ups
+
+    //Power-ups variables
     private int cantBombasInstanciables;
     [SerializeField] private int cantMaxBombas;
     [SerializeField] private float playerSpeed;
     [SerializeField] private int nivelBomba;
     private Health playerHp;
+
+    //------API methods------
+    //Singleton creation
     private void Awake()
     {
-        //Singleton creation
+        
         if (instance == null)
         {
             instance = this;
@@ -25,17 +31,17 @@ public class GameManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
-
+    //Getting the component of the player health in order to execute related operations.
     private void Start()
     {
         playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
     }
 
+    //Random drop for the items using the target as the position to spawn it.
     public void PossibleItemDrop(Transform target)
     {
         if (cantItems > 0)
         {
-            //extendible con una cantidad estática de cuantos items se pueden spawnear en el nivel. todo vía el GameManager.
             if ((int)UnityEngine.Random.Range(0, 3) == 0)
             {
                 Instantiate(instance.itemPrefabs[RandomValue()], target.transform.position, Quaternion.identity);
@@ -55,6 +61,7 @@ public class GameManager : MonoBehaviour {
         return CantBombas > 0;
     }
 
+    //Assign bombs to the player quantity and resets the assigner variable CantMaxBombas.
     public void AddCantidadBombas()
     {
         CantBombas += instance.CantMaxBombas;
@@ -66,6 +73,7 @@ public class GameManager : MonoBehaviour {
         playerHp.Life += number;
     }
 
+    //Properties - Getters and setters.
     public int CantBombas
     {
         get

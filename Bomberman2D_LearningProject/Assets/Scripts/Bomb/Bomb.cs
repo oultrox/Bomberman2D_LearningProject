@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Bomb explosion algorythm method.
 public class Bomb : MonoBehaviour {
 
     [SerializeField] private GameObject explosionPrefab;
@@ -31,11 +32,13 @@ public class Bomb : MonoBehaviour {
         
     }
 
+    // the collider trick for maknig the bomb solid once the bomberman is out of its hitbox.
     private void OnTriggerExit2D(Collider2D collision)
     {
         this.hitbox.isTrigger = false;
     }
 
+    // collision that activates other bombs if they collide with another explosions of another bomb.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Explosion"))

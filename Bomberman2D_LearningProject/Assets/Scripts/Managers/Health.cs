@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Generic component that it's implemented on every object that could die by being destroyed.
 public class Health : MonoBehaviour {
 
     [SerializeField] private int life;
     [SerializeField] private bool isPlayer;
 
+    // Method to damage the object.
     public void TakenDamage(int damage)
     {
         life -= damage;
@@ -19,6 +21,7 @@ public class Health : MonoBehaviour {
         }
     }
 
+    //Properties - getters and setters.
     public int Life
     {
         get

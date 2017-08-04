@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Generic component to destroy after x seconds an object.
 public class DestroyAfter : MonoBehaviour {
 
     [SerializeField] private float timer = 3f;

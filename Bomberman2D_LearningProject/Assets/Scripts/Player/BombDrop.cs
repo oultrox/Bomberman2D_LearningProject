@@ -7,8 +7,9 @@ public class BombDrop : MonoBehaviour {
 
     [SerializeField] private GameObject bomb;
     private Vector2 pos;
-
     private Collider2D[] hitColliders;
+
+    //Initialization, we set initial the bombs quantity.
     private void Start()
     {
         GameManager.instance.AddCantidadBombas();
@@ -23,10 +24,10 @@ public class BombDrop : MonoBehaviour {
             pos.x = Mathf.Round(pos.x);
             pos.y = Mathf.Round(pos.y);
             hitColliders = Physics2D.OverlapCircleAll(pos, 0.1f);
-            if ((hitColliders.Length <= 1)) //You don't have someone with a collider here
+            if ((hitColliders.Length <= 1)) // If you don't have someone with a collider here
             {
                 GameManager.instance.CantBombas--;
-                Instantiate(bomb, pos, Quaternion.identity);
+                Instantiate(bomb, pos, Quaternion.identity); // spawn the bomb.
             }
             
         }
