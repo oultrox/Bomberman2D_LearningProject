@@ -6,12 +6,20 @@ using UnityEngine;
 public class WormMovement : MonoBehaviour {
 
     [SerializeField] private float speed;
-
+    private Vector2 dir;
+    private Rigidbody2D wormHitbox;
+    private Animator wormAnimator;
+    private Vector2 validPosition;
+    private RaycastHit2D hit;
+    private int rand;
     //-----------API methods---------------
     // Use this for initialization
     //Initializes and set the invoke every x seconds.
 	void Start ()
     {
+        wormAnimator = this.GetComponent<Animator>();
+        wormHitbox = this.GetComponent<Rigidbody2D>();
+
         InvokeRepeating("ChangeDir", 0.5f, 0.5f);
 	}
 
@@ -19,31 +27,31 @@ public class WormMovement : MonoBehaviour {
     //Random value method
     private Vector2 Randir()
     {
-        int r = Random.Range(-1, 2);
-        return (Random.value < 0.5) ? new Vector2(r, 0) : new Vector2(0, r);
+        rand = Random.Range(-1, 2);
+        return (Random.value < 0.5) ? new Vector2(rand, 0) : new Vector2(0, rand);
     }
 
     //Cast a line from the worm position to the position where the worm wanted to move, asking if there's something there,
     //If not, he will move into that position.
     private bool IsValid(Vector2 dir)
     {
-        Vector2 pos = transform.position;
+        validPosition = transform.position;
 
-        RaycastHit2D hit = Physics2D.Linecast(pos + dir, pos);
+        hit = Physics2D.Linecast(validPosition + dir, validPosition);
 
-        return (hit.collider.gameObject == gameObject);
+        return (hit.collider.gameObject.Equals(gameObject));
     }
 
     //The movement method applying the IsValid() return method.
     private void ChangeDir()
     {
-        Vector2 dir = Randir();
+        dir = Randir();
 
         if (IsValid(dir))
         {
-            GetComponent<Rigidbody2D>().velocity = dir * speed;
-            GetComponent<Animator>().SetFloat("moveX", (int)dir.x);
-            GetComponent<Animator>().SetFloat("moveY", (int)dir.y);
+            wormHitbox.velocity = dir * speed;
+            wormAnimator.SetFloat("moveX", (int)dir.x);
+            wormAnimator.SetFloat("moveY", (int)dir.y);
         }
     }
 }

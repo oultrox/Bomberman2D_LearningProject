@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-//Manages most of the match values and components of the player itself, in a general wa.
+//Manages most of the match values and components of the player itself, in a general way.
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
@@ -37,6 +35,16 @@ public class GameManager : MonoBehaviour {
         playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
     }
 
+    private void Update()
+    {
+        if (playerHp.Life <=0)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+    }
     //Random drop for the items using the target as the position to spawn it.
     public void PossibleItemDrop(Transform target)
     {
