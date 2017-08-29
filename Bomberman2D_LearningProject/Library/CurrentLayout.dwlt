@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 51}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -1135,10 +1135,10 @@ MonoBehaviour:
     y: 30
     width: 1516
     height: 715
-  m_MinSize: {x: 483, y: 342}
-  m_MaxSize: {x: 12008, y: 14042}
+  m_MinSize: {x: 481, y: 321}
+  m_MaxSize: {x: 12006, y: 14042}
   vertical: 1
-  controlID: 69
+  controlID: 126
 --- !u!114 &55
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1160,10 +1160,10 @@ MonoBehaviour:
     y: 0
     width: 1516
     height: 444
-  m_MinSize: {x: 483, y: 71}
-  m_MaxSize: {x: 12008, y: 4021}
+  m_MinSize: {x: 481, y: 50}
+  m_MaxSize: {x: 12006, y: 4021}
   vertical: 0
-  controlID: 70
+  controlID: 127
 --- !u!114 &56
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1209,14 +1209,14 @@ MonoBehaviour:
     height: 444
   m_MinSize: {x: 100, y: 20}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 61}
+  m_ActualView: {fileID: 63}
   m_Panes:
   - {fileID: 63}
   - {fileID: 61}
   - {fileID: 64}
   - {fileID: 65}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &58
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1349,7 +1349,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoom: 0
     m_UniformScale: 1
     m_UpDirection: 1
@@ -1407,9 +1407,9 @@ MonoBehaviour:
     height: 423
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1c260000
-    m_LastClickedID: 9756
-    m_ExpandedIDs: 587fffffe0fbffff000000002c26000046280000
+    m_SelectedIDs: 0a260000
+    m_LastClickedID: 9738
+    m_ExpandedIDs: e0fbffff00000000282600002c260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1659,19 +1659,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs/Enemies
+    - Assets/Scripts/Managers
   m_ViewMode: 1
   m_StartGridSize: 43
   m_LastFolders:
-  - Assets/Prefabs/Enemies
+  - Assets/Scripts/Managers
   m_LastFoldersGridSize: 43
   m_LastProjectPath: C:\Users\heizhu2\Documents\GitHub\Bomberman2D_LearningProject\Bomberman2D_LearningProject
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 123}
-    m_SelectedIDs: 38250000
-    m_LastClickedID: 9528
-    m_ExpandedIDs: 00000000c22400000c250000162500002a25000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 43}
+    m_SelectedIDs: da250000
+    m_LastClickedID: 9690
+    m_ExpandedIDs: 00000000c22400000c250000162500002a250000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1726,7 +1726,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: d02300009c220000acf7ffff9e27fffff6240000642f0000d4300000462800008e2c00000000000020260000fc2400003c250000042500000c250000da24000062270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

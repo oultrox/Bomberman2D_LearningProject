@@ -10,10 +10,10 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int cantItems;
 
     //Power-ups variables
-    private int cantBombasInstanciables;
     [SerializeField] private int cantMaxBombas;
     [SerializeField] private float playerSpeed;
     [SerializeField] private int nivelBomba;
+    private int cantBombasInstanciables;
     private Health playerHp;
 
     //------API methods------
